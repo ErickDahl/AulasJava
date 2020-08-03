@@ -1,7 +1,5 @@
 package Herenca;
 
-import java.util.Arrays;
-
 public class Time {
     private String nome;
     private String tecnico;
