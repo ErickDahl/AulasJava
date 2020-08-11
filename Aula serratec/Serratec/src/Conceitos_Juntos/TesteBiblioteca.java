@@ -1,4 +1,4 @@
-package br.com.serratec.aula10;
+package Conceitos_Juntos;
 import java.util.Scanner;
 
 public class TesteBiblioteca {
@@ -37,7 +37,7 @@ public class TesteBiblioteca {
 				System.out.print("Digite o valor final:");
 				valorFinal = sc.nextDouble();
 				
-				System.out.println("Existem" + biblioteca.pesquisarFaixaDePreco(valorInicial, valorFinal) + " livros");
+				System.out.println("Existem " + biblioteca.pesquisarFaixaDePreco(valorInicial, valorFinal) + " livros");
 				break;
 			case 4:
 				System.out.println("Total de livros:" + biblioteca.calcularTotalLivros());

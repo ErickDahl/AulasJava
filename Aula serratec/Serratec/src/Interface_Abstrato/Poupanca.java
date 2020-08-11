@@ -1,7 +1,7 @@
 package Interface_Abstrato;
 
 public class Poupanca implements Conta {
-    private double saldo;
+    private  double saldo;
     private String titular;
 
     @Override

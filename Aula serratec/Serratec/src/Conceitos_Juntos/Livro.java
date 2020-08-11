@@ -1,4 +1,4 @@
-package br.com.serratec.aula10;
+package Conceitos_Juntos;
 
 public class Livro {
 	private String titulo;
