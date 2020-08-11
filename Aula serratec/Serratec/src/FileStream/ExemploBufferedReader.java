@@ -9,7 +9,7 @@ import TryCatch.Quantidade;
 public class ExemploBufferedReader {
     public static void main(String[] args) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("d:\\AulasJava\\teste.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("d:\\AulasJava\\Textos\\teste.txt"));
             int quantidade = 0;
             while(br.ready()){
                 //System.out.println(br.readLine());

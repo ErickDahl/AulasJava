@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class LeituraScanner {
     public static void main(String[] args) {
-        File arquivo = new File("d:\\AulasJava\\teste.txt");
+        File arquivo = new File("d:\\AulasJava\\Textos\\teste.txt");
         try{
             Scanner sc = new Scanner(arquivo);
             while(sc.hasNext()){

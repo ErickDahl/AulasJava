@@ -7,7 +7,7 @@ import java.io.IOException;
 public class ExemploBufferedWriter {
     public static void main(String[] args) {
         try {
-            BufferedWriter bf = new BufferedWriter(new FileWriter("d:\\AulasJava\\teste.txt"));
+            BufferedWriter bf = new BufferedWriter(new FileWriter("d:\\AulasJava\\Textos\\teste.txt"));
             bf.append("tudo bem?");
             bf.write(" como vai?");
             bf.close();

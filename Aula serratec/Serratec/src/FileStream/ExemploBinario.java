@@ -7,7 +7,7 @@ import java.io.IOException;
 public class ExemploBinario {
     public static void main(String[] args) {
         try {
-            FileOutputStream arq =  new FileOutputStream("arquivo.dat");
+            FileOutputStream arq =  new FileOutputStream("Textos\\arquivo.dat");
             DataOutputStream gravarArq = new DataOutputStream(arq);  
             gravarArq.writeChars("Bom dia");
             gravarArq.close();

@@ -7,7 +7,7 @@ import java.io.IOException;
 public class ExemploBinarioEscrever {
     public static void main(String[] args) {
         try {
-            FileInputStream arq = new FileInputStream("d:\\AulasJava\\arquivo.dat");
+            FileInputStream arq = new FileInputStream("d:\\AulasJava\\Textos\\arquivo.dat");
             DataInputStream LerArq = new DataInputStream(arq);
         
             String resultado = LerArq.readLine();
