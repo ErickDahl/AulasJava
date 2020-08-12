@@ -29,5 +29,20 @@
         "polis",
         "razao",
         "ÔNICO"
+    ],
+    "sqltools.connections": [
+        {
+            "askForPassword": true,
+            "database": "aula_serratec",
+            "driver": "MySQL",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "java",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "root"
+        }
     ]
 }
