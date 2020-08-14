@@ -16,6 +16,10 @@ public class ClienteDao {
 		connection = new ConnectionFactory().getConnection();
 	}
 
+	
+	/** 
+	 * @param cliente
+	 */
 	public void adicionar(Cliente cliente) {
 		String sql = "insert into cliente values(null,?,?,?)";
 		try {
@@ -31,6 +35,10 @@ public class ClienteDao {
 		}
 	}
 
+	
+	/** 
+	 * @param codigo
+	 */
 	public void apagar(int codigo) {
 		String sql = "delete from cliente where codigo=?";
 		try {
@@ -44,6 +52,10 @@ public class ClienteDao {
 		}
 	}
 
+	
+	/** 
+	 * @param cliente
+	 */
 	public void atualizar(Cliente cliente) {
 		String sql = "update cliente set nome=?,telefone=?,email=? where codigo=?";
 		try {
@@ -60,6 +72,10 @@ public class ClienteDao {
 		}
 	}
 
+	
+	/** 
+	 * @return List<Cliente>
+	 */
 	public List<Cliente> listar() {
 		String sql = "select * from cliente";
 		List<Cliente> listaClientes = new ArrayList<Cliente>();
@@ -83,6 +99,10 @@ public class ClienteDao {
 
 	}
 
+	
+	/** 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ClienteDao clienteDao = new ClienteDao();
 		System.out.println(clienteDao.listar());

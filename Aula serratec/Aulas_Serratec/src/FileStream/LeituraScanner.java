@@ -9,6 +9,7 @@ public class LeituraScanner {
         File arquivo = new File("d:\\AulasJava\\Textos\\teste.txt");
         try{
             Scanner sc = new Scanner(arquivo);
+
             while(sc.hasNext()){
                 System.out.println(sc.nextLine());
             }
@@ -17,6 +18,5 @@ public class LeituraScanner {
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }
-    }
-    
+    }  
 }

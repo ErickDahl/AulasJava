@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionFactory {
-    String urlConexao = "jdbc:mysql://localhost:3306/aula_serratec?useSSL=false";
+public class ConnectionFactoryMssl {
+    String urlConexao = "jdbc:sqlserver://[localhost][Trabalho][:1433]]";
     String usuario = "root";
     String senha = "Verm@124";
     Connection connection;

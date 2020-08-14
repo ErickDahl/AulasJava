@@ -8,8 +8,8 @@ public class ExemploFile {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o nome do Diretório ou do Arquivo");
         String nome = sc.nextLine();
-
         File file = new File(nome);
+        
         if(file.exists()){
             if(file.isFile()){
                 System.out.printf("\nArquivo (%s) existe - tamanho: %d bytes\n",file.getName(), file.length());

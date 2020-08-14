@@ -15,6 +15,5 @@ public class TesteVenda {
         venda1.inserirProduto(produto3);
         venda1.calcularVenda();
         venda1.MostrarVenda();
-
     }
 }
