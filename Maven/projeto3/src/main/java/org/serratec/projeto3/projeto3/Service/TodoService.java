@@ -2,9 +2,10 @@ package org.serratec.projeto3.projeto3.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.UnaryOperator;
 
 import org.serratec.projeto3.projeto3.Domain.Todo;
+import org.serratec.projeto3.projeto3.Exception.TodoNotFoundException;
+import org.serratec.projeto3.projeto3.Exception.ValidarIdException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,41 +29,53 @@ public class TodoService {
         return cache;
     }
 
-    public Todo getTodo(Integer id) {
+    public Todo getTodo(Integer id) throws TodoNotFoundException, ValidarIdException {
+        boolean encontrado = false;
+        Todo todoEncontrado = null;
+        validarId(id);
         for (Todo todo : cache) {
             if (todo.getId() == id) {
-                return todo;
+                encontrado = true;
+                todoEncontrado = todo;
+                break;
             }
         }
-        return null;
+        if(!encontrado) throw new TodoNotFoundException(id);
+
+        return todoEncontrado;     
     }
 
-    public Todo addTodo(Todo todo) {
+    public Todo addTodo(Todo todo) throws ValidarIdException {
+        validarId(todo.getId());
         todo.setId(nextId);
         cache.add(todo);
         nextId++;
         return todo;
     }
 
-    public Todo updateTodo(Todo todo) {
+    public Todo updateTodo(Todo todo) throws TodoNotFoundException, ValidarIdException {
+        validarId(todo.getId());
         Todo todoFound = getTodo(todo.getId());
         if (null == todoFound) {
             return null;
         }
 
-        todoFound.setTitulo(todo.getTitulo());
-        todoFound.setDescricao(todo.getDescricao());
-        todoFound.setCompletada(todo.isCompletada());
+        if(!"".equals(todoFound.getTitulo())) todoFound.setTitulo(todo.getTitulo());
+        if(!"".equals(todoFound.getDescricao())) todoFound.setDescricao(todo.getDescricao());
+        if(!"".equals(todoFound.isCompletada())) todoFound.setCompletada(todo.isCompletada());
 
-        return todo;
+        return todoFound;
     }
 
-    public boolean deleteTodo(Integer id){
+    public void deleteTodo(Integer id) throws TodoNotFoundException, ValidarIdException {
+        validarId(id);
         Todo todo = getTodo(id);
-        if(null == todo){
-            return false;
-        }
         cache.remove(todo);
-        return true;
+    }
+
+    public void validarId(Integer id) throws ValidarIdException {
+        if(id < 0){
+            throw new ValidarIdException(id);
+        }
     }
 }
