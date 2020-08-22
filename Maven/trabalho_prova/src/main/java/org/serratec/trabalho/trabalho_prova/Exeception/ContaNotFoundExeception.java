@@ -14,6 +14,5 @@ public class ContaNotFoundExeception extends Exception {
 
     public ContaNotFoundExeception(Integer numero) {
         this.numero = numero;
-    }
-    
+    } 
 }

@@ -66,7 +66,6 @@ public class ContaService {
         return contaFound;
     }
 
-
     public Conta OperacaoConta(Operacao operacao ,Integer numero) throws ValidarNumeroException, ContaNotFoundExeception {
         validarNumero(numero);
         Conta contaFound = getConta(numero);
@@ -86,7 +85,6 @@ public class ContaService {
         Conta conta = getConta(numero);
         cache.remove(conta);
     }
-
 
     public void validarNumero(Integer numero) throws ValidarNumeroException {
         if(numero < 0){

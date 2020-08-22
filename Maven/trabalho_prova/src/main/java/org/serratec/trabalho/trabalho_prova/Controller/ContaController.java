@@ -26,7 +26,6 @@ public class ContaController {
     @Autowired
     private ContaService contaService;
 
-
     @GetMapping
     public ResponseEntity<?> getContas() {
         HttpHeaders cabecalho = new HttpHeaders();
