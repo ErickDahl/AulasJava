@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.serratec.trabalho.trabalho_prova.Domain.Conta;
+import org.serratec.trabalho.trabalho_prova.Domain.Operacao;
 import org.serratec.trabalho.trabalho_prova.Exeception.ContaNotFoundExeception;
 import org.serratec.trabalho.trabalho_prova.Exeception.ValidarNumeroException;
 import org.springframework.stereotype.Service;
@@ -66,26 +67,19 @@ public class ContaService {
     }
 
 
-    public Conta DebitoConta(Integer numero, Integer valor) throws ValidarNumeroException, ContaNotFoundExeception {
+    public Conta OperacaoConta(Operacao operacao ,Integer numero) throws ValidarNumeroException, ContaNotFoundExeception {
         validarNumero(numero);
         Conta contaFound = getConta(numero);
         if (null == contaFound) {
             return null;
         }
-        contaFound.setValor(contaFound.getValor() - valor);
-        return contaFound;
-    }
-
-    public Conta CreditoConta(Integer numero, Integer valor) throws ValidarNumeroException, ContaNotFoundExeception {
-        validarNumero(numero);
-        Conta contaFound = getConta(numero);
-        if (null == contaFound) {
-            return null;
+        if(operacao.getOperacao().equals("debito")){
+            contaFound.setValor(contaFound.getValor() - operacao.getValor());
+        } else if(operacao.getOperacao().equals("credito")){
+            contaFound.setValor(contaFound.getValor() + operacao.getValor());
         }
-        contaFound.setValor(contaFound.getValor() + valor);
         return contaFound;
     }
-
 
     public void deleteConta(Integer numero) throws ValidarNumeroException, ContaNotFoundExeception {
         validarNumero(numero);

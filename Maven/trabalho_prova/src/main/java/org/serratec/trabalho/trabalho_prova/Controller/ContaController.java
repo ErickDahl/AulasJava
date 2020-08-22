@@ -1,6 +1,7 @@
 package org.serratec.trabalho.trabalho_prova.Controller;
 
 import org.serratec.trabalho.trabalho_prova.Domain.Conta;
+import org.serratec.trabalho.trabalho_prova.Domain.Operacao;
 import org.serratec.trabalho.trabalho_prova.Exeception.ContaNotFoundExeception;
 import org.serratec.trabalho.trabalho_prova.Exeception.ValidarNumeroException;
 import org.serratec.trabalho.trabalho_prova.Service.ContaService;
@@ -25,6 +26,7 @@ public class ContaController {
     @Autowired
     private ContaService contaService;
 
+
     @GetMapping
     public ResponseEntity<?> getContas() {
         HttpHeaders cabecalho = new HttpHeaders();
@@ -45,16 +47,10 @@ public class ContaController {
             return ResponseEntity.status(HttpStatus.CREATED).body(contaService.addConta(conta));    
     }
 
-    @PostMapping("/credito")
-    public ResponseEntity<?> CreditoConta(@RequestParam Integer numero, Integer valor) throws ValidarNumeroException, ContaNotFoundExeception {
-
-            return ResponseEntity.status(HttpStatus.CREATED).body(contaService.CreditoConta(numero, valor));    
-    }
-
-    @PostMapping("/debito")
-    public ResponseEntity<?> DebitoConta(@RequestParam Integer numero, Integer valor) throws ValidarNumeroException, ContaNotFoundExeception {
-
-            return ResponseEntity.status(HttpStatus.CREATED).body(contaService.DebitoConta(numero, valor));    
+    @PostMapping("/operacao")
+    public ResponseEntity<?> DebitoConta(@RequestParam String operacao,Integer valor, Integer numero) throws ValidarNumeroException, ContaNotFoundExeception {
+            Operacao operacao2 = new Operacao(operacao, valor);
+            return ResponseEntity.status(HttpStatus.CREATED).body(contaService.OperacaoConta(operacao2, numero));    
     }
     
     @PutMapping("/atualizar")
@@ -69,6 +65,5 @@ public class ContaController {
         
             contaService.deleteConta(numero);
             return ResponseEntity.status(HttpStatus.OK).build();   
-     }
-    
+     } 
 }
