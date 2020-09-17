@@ -49,7 +49,7 @@ public class ContaController {
     @PostMapping("/operacao")
     public ResponseEntity<?> DebitoConta(@RequestParam String operacao,Integer valor, Integer numero) throws ValidarNumeroException, ContaNotFoundExeception {
             Operacao operacao2 = new Operacao(operacao, valor);
-            return ResponseEntity.status(HttpStatus.CREATED).body(contaService.OperacaoConta(operacao2, numero));    
+            return ResponseEntity.status(HttpStatus.OK).body(contaService.OperacaoConta(operacao2, numero));    
     }
     
     @PutMapping("/atualizar")
